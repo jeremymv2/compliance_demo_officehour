@@ -9,6 +9,7 @@ Initially the audit cookbook supported reporting 3 ways:
   * Directly to Visibility
 
 Some recent reporting additions:
+  * moved from converge phase to running as report handler (NEW!)
   * json file (NEW!)
   * Multiple reporting endpoints (NEW!)
   * fetch profiles from Automate and report to Visibility through Chef Server proxy, without any changes to `client.rb` (NEW!)
