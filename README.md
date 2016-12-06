@@ -193,6 +193,39 @@ depends:
     git: https://github.com/dev-sec/ssl-benchmark.git
 ```
 
+Dependency locks:
+```
+$ cat acme-inspec-profile/inspec.lock
+---
+lockfile_version: 1
+depends:
+- name: linux-patch-benchmark
+  resolved_source:
+    git: https://github.com/dev-sec/linux-patch-benchmark.git
+    ref: d53030317b711f36fa2fde9e18170ce6b4eaacf2
+  version_constraints: ">= 0"
+- name: windows-patch-benchmark
+  resolved_source:
+    git: https://github.com/dev-sec/windows-patch-benchmark.git
+    ref: c183d08eb25638e7f5eac97e521640ea314c8e3d
+  version_constraints: ">= 0"
+- name: os-hardening
+  resolved_source:
+    git: https://github.com/dev-sec/tests-os-hardening.git
+    ref: da3a1b6ce8a845d6818152a824e123c2445c355f
+  version_constraints: ">= 0"
+- name: ssh-hardening
+  resolved_source:
+    git: https://github.com/dev-sec/tests-ssh-hardening.git
+    ref: 75754b9b3fe45c601f0fa0036b01c61c8b8e26d9
+  version_constraints: ">= 0"
+- name: ssl-benchmark
+  resolved_source:
+    git: https://github.com/dev-sec/ssl-benchmark.git
+    ref: e17486c864434c818f96ca13edd2c5a420100a45
+  version_constraints: ">= 0"
+```
+
 Example controls:
 ```
 $ cat acme-inspec-profile/controls/example.rb
