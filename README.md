@@ -156,6 +156,42 @@ data_collector['token'] = '93a49a4f2482c64126f7b6015e6b0f30284287ee4054ff8807fb6
 profiles['root_url'] = 'https://automate-server.test'
 ```
 
+# Meta Profiles
+Reference: http://lollyrock.com/articles/chef-compliance-meta-profiles/
+
+Meta profiles are out! A meta profile is an overlay or a collection of multiple profiles.
+
+Some Uses-cases are:
+  * a deviation from CIS benchmarks
+  * collection of all CIS profiles that apply to your infrastructure (eg. a company-wide profile)
+
+A meta profile contains all its dependencies as vendored/bundled profiles so that it can run inside an Air Gapped
+Environment without requirement for Internet access.
+
+An example (https://github.com/chris-rock/acme-inspec-profile):
+```
+$ cat acme-inspec-profile/inspec.yml
+name: acme-inspec-profile
+title: Meta profile for Acme Inc
+maintainer: Christoph Hartmann
+copyright: Christoph Hartmann
+copyright_email: chris@lollyrock.com
+license: Apache 2.0
+summary: This profile collects all compliance and security related requirements for Acme Inc.
+version: 0.1.0
+depends:
+  - name: linux-patch-benchmark
+    git: https://github.com/dev-sec/linux-patch-benchmark.git
+  - name: windows-patch-benchmark
+    git: https://github.com/dev-sec/windows-patch-benchmark.git
+  - name: os-hardening
+    git: https://github.com/dev-sec/tests-os-hardening.git
+  - name: ssh-hardening
+    git: https://github.com/dev-sec/tests-ssh-hardening.git
+  - name: ssl-benchmark
+    git: https://github.com/dev-sec/ssl-benchmark.git
+```
+
 ## Additional Resources
   * managing Chef Client client.rb settings: https://github.com/chef-cookbooks/chef-client
   * upgrading Chef Client: https://github.com/chef-cookbooks/omnibus_updater
