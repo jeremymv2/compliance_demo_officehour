@@ -10,8 +10,8 @@ Initially the audit cookbook supported reporting 3 ways:
 
 Some recent reporting additions:
   * json file (NEW!)
-  * Multiple reporting endpoints (NEW!)  
-  * report to Visibility via Chef Server proxy (NEW!)
+  * Multiple reporting endpoints (NEW!)
+  * fetch profiles and report to Visibility both via Chef Server proxy (NEW!)
 
 # Store profiles in Automate
 There is now an option to store Inspec profiles via a new asset store in Automate!
@@ -20,6 +20,14 @@ Version Requirements:
   * automate 0.6.6
 
 # Using the Automate asset store
+
+## Enable the feature in Automate
+To enable profile asset storage:
+
+```
+# delivery.rb
+compliance_profiles['enable'] = true
+```
 
 ## inspec cli
 ```
@@ -61,6 +69,7 @@ Answer: "At the moment, the Compliance server is the only option with a UI for m
 
 # Testing out the NEW
 Let's examine what it takes to run inspec scan of a node migrating
+
 From this:
   * Audit Cookbook 2.x
   * Profiles Stored on Compliance Server
@@ -93,7 +102,7 @@ default['audit']['profiles'] =
 The `fetcher` attribute was introduced in Audit 2.0.0
 Also, in 2.x `profiles` are now an array of hashes
 
-The attributes below Fetch Profiles via Compliance Server, Post Reports to Visibility and requires Chef Server Integration with Compliance Server
+The attributes below will fetch profiles via Compliance Server, post reports to Visibility and requires the Chef Server Integration with Compliance Server
 ```
 # wrapper cookbook
 default['audit']['collector'] = 'chef-visibility'
