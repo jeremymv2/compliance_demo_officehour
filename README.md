@@ -31,6 +31,7 @@ compliance_profiles['enable'] = true
 
 ## inspec cli
 ```
+$ inspec compliance help
 $ inspec compliance login_automate https://automate-server.test --insecure true --user admin --dctoken 93a49a4f2482c64126f7b6015e6b0f30284287ee4054ff8807fb63d9cbd1c506 --ent brewinc
 $ inspec compliance upload /Users/jmiller/Devel/compliance-profiles/ssh.tar.gz
 ```
