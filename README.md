@@ -192,6 +192,26 @@ depends:
     git: https://github.com/dev-sec/ssl-benchmark.git
 ```
 
+Example controls:
+```
+$ cat acme-inspec-profile/controls/example.rb
+# encoding: utf-8
+# copyright: 2015, The Authors
+# license: All rights reserved
+
+# import full profile
+include_controls 'hardening/ssh-hardening'
+
+# select only individual controls
+include_controls 'ssl-benchmark' do
+  control "tls1.2"
+end
+
+# inspec knows that it cannot run Windows tests on Linux
+include_controls 'windows-patch-benchmark'
+```
+
+
 ## Additional Resources
   * managing Chef Client client.rb settings: https://github.com/chef-cookbooks/chef-client
   * upgrading Chef Client: https://github.com/chef-cookbooks/omnibus_updater
