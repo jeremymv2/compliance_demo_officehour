@@ -16,8 +16,7 @@ Some recent reporting additions:
 
 # Store profiles in Automate
 There is now an option to store Inspec profiles via a new asset store in Automate!
-Version Requirements:
-  * chef-server 12.11.0
+Version Requirement:
   * automate 0.6.6
 
 # Using the Automate asset store
