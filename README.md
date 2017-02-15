@@ -148,7 +148,7 @@ No more client side `data_collector` settings to manage!
 # data_collector['token'] = '93a49a4f2482c64126f7b6015e6b0f30284287ee4054ff8807fb63d9cbd1c506'
 ```
 
-However, you must configure the Chef Server.  **Note:** `root_url` is used on Chef Server, not `server_url` (which is used on client side in client.rb)
+However, you must configure the Chef Server.  **Note:** `root_url` is used on Chef Server, not `server_url` (which is used on client side in client.rb) **Note:** You MUST specify both the `root_url` AND `token`.
 
 ```
 # chef-server.rb
